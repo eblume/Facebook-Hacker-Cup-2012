@@ -36,6 +36,8 @@ class Billboard:
     7
     >>> Billboard(350,100).set("Facebook Hacker Cup 2013")
     33
+    >>> Billboard(1,1).set("Too Much Text")
+    0
     """
     
     def __init__(self,width,height):
@@ -47,8 +49,7 @@ class Billboard:
 
         Returns an integer, being the maximum size in inches for the font.
 
-        Will raise ValueError in the case that the text cannot be set with
-        at least a font-size of 1 inch.
+        Returns 0 if the text cannot be properly set.
         """
         # We will brute-force the solution (as this is simple and
         # time-effective) by checking every font size from the lesser of the
@@ -63,8 +64,7 @@ class Billboard:
             if self.check_size(i,text):
                 return i
 
-        raise ValueError("No font will set '{}' to a {}x{} billboard".format(
-                         text, self.height, self.width))
+        return 0
         
 
     def check_size(self,size,text):
