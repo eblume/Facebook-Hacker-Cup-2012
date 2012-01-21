@@ -1,3 +1,3 @@
 #!/bin/sh
 
-nosetests --with-coverage --with-doctest .
+nosetests --with-coverage --with-doctest --verbose .
